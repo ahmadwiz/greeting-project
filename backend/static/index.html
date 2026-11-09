@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Guestbook</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <script src="/static/script.js" defer></script>
+</head>
+<body>
+  <main>
+    <h1>My Guestbook</h1>
+
+    <nav>
+      <span id="welcome">Welcome, guest!</span>
+      <a id="login" href="/.auth/login/guestbook_oidc?post_login_redirect_uri=/">
+        Sign in with Google
+      </a>
+      <a id="logout" href="/.auth/logout?post_logout_redirect_uri=/" hidden>
+        Sign out
+      </a>
+    </nav>
+
+    <section>
+      <h2>Saved messages</h2>
+      <form id="load-form" method="GET" action="/messages">
+        <button type="submit">Reload messages</button>
+      </form>
+      <p id="load-status" role="status"></p>
+      <ul id="messages"></ul>
+    </section>
+
+    <section>
+      <h2>Leave a message</h2>
+      <p id="sign-in-note">Sign in to leave a message.</p>
+      <form id="message-form" method="POST" action="/messages" hidden>
+        <label for="message">Your message</label>
+        <input id="message" name="message" type="text" maxlength="200" required>
+        <button type="submit">Post message</button>
+      </form>
+      <p id="post-status" role="status"></p>
+    </section>
+  </main>
+</body>
+</html>

@@ -45,3 +45,15 @@ button {
 button:hover {
   background-color: #1d4ed8;
 }
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+#messages li {
+  margin-bottom: 10px;
+  overflow-wrap: anywhere;
+}
